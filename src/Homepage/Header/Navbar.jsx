@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import logo from '../../assets/logo.png'
+import logo from '../../assets/1.png'
 import { FaRegMoon } from "react-icons/fa";
 import { LuSunMedium } from "react-icons/lu";
 import { FiArrowDownRight } from "react-icons/fi";
@@ -14,7 +14,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="w-full py-6"> 
+        <div className="w-full py-6 header"> 
         <div className={`navbar w-full md:w-11/12  mx-auto p-6 rounded-xl bg-black `}>
         <div className="navbar-start">
           <div className="dropdown">
@@ -41,11 +41,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm  dropdown-content bg-base-100 text-white font-bold text-lg rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <NavLink  className={'nav'}  to={'/'}>Home</NavLink>
-     <NavLink className={'nav'}  to={'/addBlogs'}>Add Blogs</NavLink>
-
-        <NavLink  className={'nav'} to={'/allBlogs'}>All Blogs</NavLink>
-        <NavLink  className={'nav'} to={'/featured'}>Featured Blogs</NavLink>
-        <NavLink className={'nav'}  to={'/wishList'}>WishList</NavLink>
+   
 
             </ul>
           </div>

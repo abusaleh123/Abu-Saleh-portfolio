@@ -12,8 +12,9 @@ const Banner = () => {
         imageLink.click();
       };
     return (
-        <div className='w-8/12 mx-auto text-white'>
-            <div className='flex md:flex-row flex-col-reverse  gap-4 items-center'>
+        <div className='header'>
+        <div className='w-8/12 mx-auto text-white  '>
+            <div className='flex md:flex-row flex-col-reverse justify-center   gap-4 items-center'>
             <div className=' space-y-2'> 
             <p className="lg:text-7xl md:text-3xl  text-2xl font-bold  mb-4">Hello ! I'm</p>
                 {/* <span className='text text-2xl'>Hi I'm</span> */}
@@ -37,7 +38,7 @@ const Banner = () => {
                        </div>
                     </div>
                   <div className='py-4'>
-                  <button onClick={handleDownload} style={{background: `linear-gradient(67deg, rgba(194,21,181,1) 9%, rgba(118,8,166,1) 100%)`}} className='btn btn-ghost w-1/4 text-lg rounded-xl  '>Get Resume</button>
+                  <button onClick={handleDownload} style={{background: `linear-gradient(67deg, rgba(194,21,181,1) 9%, rgba(118,8,166,1) 100%)`}} className='btn btn-ghost md:w-1/4 text-lg rounded-xl  '>Get Resume</button>
                   </div>
 
             </div>
@@ -45,6 +46,7 @@ const Banner = () => {
                 <img  className='' src={banner} alt="" />
             </div>
             </div>
+        </div>
         </div>
     );
 };
