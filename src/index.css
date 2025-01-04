@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body{
+  background-color: black;
+} */
+
+.active{
+  color: white;
+  text-decoration: underline;
+  
+  
+}
+
+body{
+  background: linear-gradient(90deg, rgba(11,11,11,1) 0%, rgba(41,12,39,1) 50%, rgba(109,7,165,1) 90%);
+  font-family: "DM Serif Text", serif;
+}
+
+
+.banner-name{
+  font-family: "Rubik Microbe", serif;
+
+}
+.text{
+  font-family: "DM Serif Text", serif;
+}
+
+
