@@ -10,7 +10,7 @@ const {theme } = useContext(ThemeContext)
 
   const [projects, setProjects] = useState([])
 useEffect(() => {
-  axios.get('http://localhost:5000/projects')
+  axios.get('https://abu-saleh-portfolio-server.vercel.app/projects')
   .then(res => {
     console.log(res.data);
     setProjects(res.data)
@@ -35,10 +35,10 @@ useEffect(() => {
 
         <div className='grid  md:grid-cols-2 lg:grid-cols-3  gap-6'>
           {
-            projects.map(project => <div className={`text-start h-full ${theme === 'dark ' ? '': 'border border-[#23D8FF]'}  pb-4 rounded-xl backdrop-blur-2xl bg-white/20`} key={project._id}>
+            projects.map(project => <div className={`text-start h-full ${theme === 'dark ' ? 'border-none': 'border  border-[#23D8FF]'}  pb-4 rounded-xl backdrop-blur-2xl  bg-white/20`} key={project._id}>
               <img className='rounded-xl' src={project.image} alt="" />
-              <h1 className={`text-3xl lg:pl-2 mt-3  ${theme === 'dark' ? 'text-white' : 'text-[#23D8FF]'}`}>{project.name}</h1>
-              <p className={`text-lg ${theme === 'dark' ? '' : 'text-black'} lg:pl-2 h-28`}>{project.short_description}</p>
+              <h1 className={`text-3xl px-1 lg:pl-2 mt-3  ${theme === 'dark' ? 'text-white' : 'text-[#23D8FF]'}`}>{project.name}</h1>
+              <p className={`text-lg ${theme === 'dark' ? '' : 'text-black'} lg:pl-2 px-1 h-28`}>{project.short_description}</p>
               <Link to={`/project/${project._id}`} style={{
     background: theme === 'dark'
       ? `linear-gradient(67deg, rgba(194,21,181,1) 9%, rgba(118,8,166,1) 100%)`

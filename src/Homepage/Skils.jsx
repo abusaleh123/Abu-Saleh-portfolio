@@ -11,16 +11,18 @@ import firebase from '../../src/assets/firebase.png';
 import { motion } from 'framer-motion';
 import { useContext } from "react";
 import { ThemeContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Skills = () => {
   const {theme} = useContext(ThemeContext)
     return (
         <div className={`${theme === 'dark'? 'bg-black' : 'bg-white border border-[#23D8FF]'}`}>
+          
         <div className="w-8/12 mx-auto text-center py-20">
             <div>
-                <h1 className={`md:text-8xl text-3xl text-center justify-center ${theme === 'dark'? 'text-white/90': 'text-[#23D8FF]'} flex`}>My Skils <FiArrowDownRight className={`${ theme === 'dark'? 'text-[#6F1160] ' : 'text-[#23D8FF]'}text-9xl`} /></h1>
+                <h1 className={`lg:text-8xl md:6xl text-4xl text-center justify-center ${theme === 'dark'? 'text-white/90': 'text-[#23D8FF]'} flex`}>My Skils <FiArrowDownRight className={`${ theme === 'dark'? 'text-[#6F1160] ' : 'text-[#23D8FF]'}lg:text-8xl md:6xl text-5xl`} /></h1>
             </div>
-            <div className={`flex flex-wrap mt-16 ${theme === 'dark' ? 'text-white' : 'text[#23D8FF]'} justify-center gap-12`}>
+            <div className={`flex flex-wrap mt-16 ${theme === 'dark' ? 'text-white' : 'text[#23D8FF]'} justify-center gap-8 lg:gap-12`}>
                 {/* Card 1 */}
                 <motion.div
                 

@@ -5,16 +5,20 @@ import { MdOutlineEmail } from "react-icons/md";
 import git from '../assets/pngwing.com.png'
 import facebook from '../assets/facebook-removebg-preview.png'
 import LinkedIn from '../assets/Linkedin.png'
+import { Helmet } from 'react-helmet';
 
 const About = () => {
     return (
         <div style={{backgroundImage: `url(${bg })`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} className='min-h-screen bg-black bg-opacity-75 backdrop-blur-xl py-10'>
+            <Helmet>
+                <title>About - Abu Saleh Noor</title>
+            </Helmet>
             <section className='w-10/12 mx-auto'>
             <section>
        <div className=''>
-              <div className='w-10/12 mx-auto text-white  '>
+              <div className='md:w-10/12 mx-auto text-white  '>
                   <div className='flex md:flex-row flex-col-reverse justify-center   gap-4 items-center  rounded-xl backdrop-blur-xl bg-white/10 py-6 px-8'>
-                  <div className=' space-y-2 w-7/12 '> 
+                  <div className=' space-y-2 md:w-7/12 '> 
                   <p className="lg:text-7xl md:text-3xl  text-2xl font-bold  mb-4">I am</p>
                       {/* <span className='text text-2xl'>Hi I'm</span> */}
                       <h1 className="lg:text-9xl md:text-5xl text-4xl  lg:w-[700px] ">Abu Saleh Noor</h1>
@@ -38,7 +42,7 @@ My ultimate goal is to create high-quality websites and applications that provid
               </div>
               </div>
               </section>
-              <section className='text-center md:mt-12'>
+              <section className='text-center mt-6 md:mt-12'>
                 <div>
                     <h1 className="lg:text-7xl md:text-4xl text-3xl text-white">W. Development Journey</h1>
                     <p className="text-lg mt-1">My Web Development Journey: The Story of How I Entered This Field</p>
@@ -84,14 +88,14 @@ Singing these songs has taught me discipline, confidence, and the importance of 
                     <h1 className="lg:text-7xl md:text-4xl text-3xl text-white *:">Contact</h1>
                 
                 </div>
-                <div className='mt-10 flex justify-around'>
+                <div className='mt-10 lg:flex justify-around space-y-2'>
                     <div className='flex gap-6 items-center'>
                         <p className="border p-6 rounded-full md:text-3xl text-xl"><IoCallOutline /> </p>
-                        <p className="md:text-3xl text-2xl text-white">01522113282/ 01586325786</p>
+                        <p className="md:text-3xl  text-white">01522113282/ 01586325786</p>
                     </div>
                     <div className='flex gap-2 items-center'>
                         <p className="border p-6 rounded-full md:text-3xl text-xl"><MdOutlineEmail /> </p>
-                        <p className="md:text-3xl text-2xl text-white">mdabusalehnoor4103@gmail.com</p>
+                        <p className="md:text-3xl  text-white">mdabusalehnoor4103@gmail.com</p>
                     </div>
                 </div>
                  <div className='flex items-center justify-center mt-10 gap-2'>

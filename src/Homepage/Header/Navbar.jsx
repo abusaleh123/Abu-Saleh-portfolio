@@ -3,65 +3,79 @@ import logo from '../../assets/1.png'
 import { FaRegMoon } from "react-icons/fa";
 import { LuSunMedium } from "react-icons/lu";
 import { FiArrowDownRight } from "react-icons/fi";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "../../Provider/AuthProvider";
+import { CiMenuBurger } from "react-icons/ci";
+import { IoCloseOutline } from "react-icons/io5";
 
 const Navbar = () => {
 
+
+  const location = useLocation()
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
   const { theme, toggleTheme } = useContext(ThemeContext);
   const handleDownload = () => {
     const imageLink = document.createElement('a');
-    imageLink.href = '/resume.png'; // Make sure to update the path
-    imageLink.download = 'Abu_Saleh_Resume.png'; // The default filename when downloaded
+    imageLink.href = '/resume.png'; 
+    imageLink.download = 'Abu_Saleh_Resume.png'; 
     imageLink.click();
   };
 
 
+
+  const handleBackground = location.pathname === '/about' ? 'bg-purple-400' : ''
+
     return (
       <div className="">
-        <div className={`w-full py-6  ${theme === 'dark' ? 'header' : 'bg-white border border-[#23D8FF]'}`}> 
-        <div className={`navbar sticky top-0 w-full md:w-11/12  mx-auto p-6 rounded-full ${theme === 'dark' ? 'bg-black' : ' text-black' } `}>
+       
+        <div className={`w-full py-6 ${theme === 'dark' ? `header ${handleBackground}` : `bg-white border border-[#23D8FF] `}`}>
+        <div className={`navbar sticky top-0 w-full md:w-11/12   mx-auto p-6 rounded-full ${theme === 'dark' ? 'bg-black' : ' text-black' } `}>
         <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost w-fit lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
+        <div className="dropdown">
+      <div
+        tabIndex={0}
+        role="button"
+        className="btn btn-ghost border hover:bg-transparent w-fit lg:hidden"
+        onClick={toggleDropdown}
+      >
+        {dropdownOpen ? (
+          <IoCloseOutline className={`text-xl ${theme === 'dark' ? 'text-white': 'text-black'}`} />
+        ) : (
+          <CiMenuBurger className={`text-xl ${theme === 'dark' ? 'text-white': 'text-black'}`}  />
+        )}
+      </div>
+      {dropdownOpen && (
+        <ul
+          style={{
+            background: "linear-gradient(to top, #5350C3 0%, #8784F8 0%)",
+          }}
+          tabIndex={0}
+          className="menu menu-sm dropdown-content bg-base-100 text-white font-bold text-lg rounded-box z-[1] mt-3 w-52 p-2 shadow"
+        >
+          <NavLink className={'nav'} to={'/'}>Home</NavLink>
+          <NavLink className={'nav'} to={'/about'}>About</NavLink>
+          <div className="flex gap-1 items-center">
+            <LuSunMedium className="text-2xl" />
+            <div className="form-control w-fit">
+              <label className="label cursor-pointer">
+                <input
+                  type="checkbox"
+                  onChange={toggleTheme}
+                  checked={theme === 'dark'}
+                  className="toggle toggle-secondary"
+                />
+              </label>
             </div>
-            <ul
-            style={{
-              background: "linear-gradient(to top, #5350C3 0%, #8784F8 0%)",
-              // WebkitBackgroundClip: "text",
-              // WebkitTextFillColor: "transparent"
-              }}
-              tabIndex={0}
-              className="menu menu-sm  dropdown-content bg-base-100 text-white font-bold text-lg rounded-box z-[1] mt-3 w-52 p-2 shadow">
-          <NavLink  className={'nav'}  to={'/'}>Home</NavLink>
-          <NavLink className={'nav'}  to={'/about'}>About</NavLink>
-          <div className="flex gap-1 items-center " >
-         <LuSunMedium className="text-2xl" />
-         <div className="form-control w-fit ">
-    <label className="label cursor-pointer">
-     
-      <input type="checkbox"  onChange={toggleTheme}
-                  checked={theme === 'dark'} className="toggle toggle-secondary" defaultChecked />
-    </label>
-  </div>
-         <FaRegMoon className="text-xl" />
-         </div>
-   
-
-            </ul>
+            <FaRegMoon className="text-xl" />
           </div>
+        </ul>
+      )}
+    </div>
         <Link to={'/'} className="flex items-center  justify-center gap-0">
             <img className="md:w-16 w-10 rounded-full" src={logo}  alt="" />
        
@@ -69,8 +83,8 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal md:gap-6 lg:gap-8 px-3 lg:text-lg font-semibold">
-        <NavLink  className={'nav'}  to={'/'}>Home</NavLink>
-       <NavLink className={'nav'}  to={'/about'}>About</NavLink>
+        <NavLink  className={'nav md:text-xl'}  to={'/'}>Home</NavLink>
+       <NavLink className={'nav md:text-xl'}  to={'/about'}>About</NavLink>
           </ul>
         </div>
      
@@ -79,7 +93,7 @@ const Navbar = () => {
 
           <div className="hidden md:inline-block">
          <div className="flex gap-1 items-center " >
-         <LuSunMedium className="text-2xl" />
+         <LuSunMedium className={`text-xl ${theme === 'dark' ? '' : 'text-[#23D8FF]'} `} />
          <div className="form-control w-fit ">
     <label className="label cursor-pointer">
      
@@ -87,7 +101,7 @@ const Navbar = () => {
                   checked={theme === 'dark'} className="toggle toggle-secondary" defaultChecked />
     </label>
   </div>
-         <FaRegMoon className="text-xl" />
+         <FaRegMoon className={`text-xl ${theme === 'dark' ? '' : 'text-[#23D8FF]'} `} />
          </div>
          </div>
                 <button onClick={handleDownload}  style={{

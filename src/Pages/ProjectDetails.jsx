@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import bg from '../../src/assets/details.jpg';
 import git from '../../src/assets/pngwing.com.png'
+import { Helmet } from "react-helmet";
 
 const ProjectDetails = () => {
     const project = useLoaderData();
@@ -9,6 +10,9 @@ const ProjectDetails = () => {
    
     return (
         <div style={{backgroundImage: `url(${bg})`, backgroundSize: 'cover'}} className="bg-black">
+            <Helmet>
+                <title>Project Detail - Abu Saleh Noor</title>
+            </Helmet>
             <div className="w-10/12 mx-auto py-16">
                <div className="border p-10 rounded-xl bg-white/20">
                     <img className="rounded-xl" src={image} alt="" />
@@ -44,15 +48,18 @@ const ProjectDetails = () => {
 
                     <div className="grid grid-cols-2 ">
                         <div className="flex gap-4 mb-4 mt-6">
-                        <a style={{background: `linear-gradient(67deg, rgba(194,21,181,1) 9%, rgba(118,8,166,1) 100%)`}} href={project.client} target="_blank" className={`btn ${project.server ? 'col-span-1' : 'col-span-2'}  border-none w-full text-lg text-white`}>
-                            <img className="w-12" src={git} alt="" />
+                        <a style={{background: `linear-gradient(67deg, rgba(194,21,181,1) 9%, rgba(118,8,166,1) 100%)`}} href={project.client} target="_blank" className={`btn ${project.server ? 'col-span-1' : 'col-span-2'}  border-none w-full md:text-lg text-white`}>
+                            <img className="md:w-12 w-8" src={git} alt="" />
                             
-                            Client</a>
-                      {
-                        project.server &&   <a style={{background: `linear-gradient(67deg, rgba(194,21,181,1) 9%, rgba(118,8,166,1) 100%)`}} href={project.server} target="_blank" className={`btn ${project.server || 'hidden'} col-span-1 border-none w-full text-lg text-white`}>
-                        <img className="w-12" src={git} alt="" />
+                            <span className="inline-block sm:hidden">C</span>
                         
-                        Server</a>
+                        <span className="hidden sm:inline-block">Client</span></a>
+                      {
+                        project.server &&   <a style={{background: `linear-gradient(67deg, rgba(194,21,181,1) 9%, rgba(118,8,166,1) 100%)`}} href={project.server} target="_blank" className={`btn ${project.server || 'hidden'} col-span-1 border-none w-full md:text-lg text-white`}>
+                        <img className="md:w-12 w-7 " src={git} alt="" />
+                        <span className="inline-block sm:hidden">S</span>
+                        
+                        <span className="hidden sm:inline-block">Server</span></a>
                       }
                       
                         </div>
