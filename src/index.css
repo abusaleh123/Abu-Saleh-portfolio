@@ -7,8 +7,10 @@
 } */
 
 .active{
-  color: white;
+  color:#23D8FF ;
   text-decoration: underline;
+ 
+  
   
   
 }
@@ -17,7 +19,16 @@
 .header{
   background: linear-gradient(90deg, rgba(11,11,11,1) 0%, rgba(41,12,39,1) 50%, rgba(109,7,165,1) 90%);
 }
+.light{
+  background: linear-gradient(90deg,  rgba(41,12,39,1) 50%, rgba(109,7,165,1) 90%);
+}
 
+.headerr{
+  background: linear-gradient(90deg, rgba(109,7,165,1) 0%, rgba(41,12,39,1) 50%, rgba(11,11,11,1) 100%);
+}
+.aboutLight{
+  background: linear-gradient(90deg, rgba(109,7,165,1) 0%, rgba(41,12,39,1) 50%);
+}
 body{
 
   font-family: "DM Serif Text", serif;
@@ -33,3 +44,12 @@ body{
 }
 
 
+body.light {
+  background-color: black;
+  color: white;
+}
+
+body.dark {
+  background-color: white;
+  color: black;
+}
