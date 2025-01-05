@@ -9,15 +9,15 @@ import { Helmet } from 'react-helmet';
 
 const About = () => {
     return (
-        <div style={{backgroundImage: `url(${bg })`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} className='min-h-screen bg-black bg-opacity-75 backdrop-blur-xl py-10'>
+        <div style={{backgroundImage: `url(${bg })`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} className='min-h-screen bg-black py-10 z-[0]  bg-opacity-75  pt-20 lg:pt-0'>
             <Helmet>
                 <title>About - Abu Saleh Noor</title>
             </Helmet>
-            <section className='w-10/12 mx-auto'>
+            <section className='w-10/12 mx-auto z-0'>
             <section>
-       <div className=''>
+       <div className='z-0'>
               <div className='md:w-10/12 mx-auto text-white  '>
-                  <div className='flex md:flex-row flex-col-reverse justify-center   gap-4 items-center  rounded-xl backdrop-blur-xl bg-white/10 py-6 px-8'>
+                  <div className='flex md:flex-row flex-col-reverse justify-center  z-[0 ] gap-4 items-center  rounded-xl backdrop-blur-xl bg-white/10 py-6 px-8'>
                   <div className=' space-y-2 md:w-7/12 '> 
                   <p className="lg:text-7xl md:text-3xl  text-2xl font-bold  mb-4">I am</p>
                       {/* <span className='text text-2xl'>Hi I'm</span> */}

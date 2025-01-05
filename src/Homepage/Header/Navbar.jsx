@@ -36,7 +36,7 @@ const Navbar = () => {
         <div className={`w-full py-6 ${theme === 'dark' ? `header ${handleBackground}` : `bg-white border border-[#23D8FF] `}`}>
         <div className={`navbar sticky top-0 w-full md:w-11/12   mx-auto p-6 rounded-full ${theme === 'dark' ? 'bg-black' : ' text-black' } `}>
         <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown  z-10">
       <div
         tabIndex={0}
         role="button"
@@ -52,10 +52,10 @@ const Navbar = () => {
       {dropdownOpen && (
         <ul
           style={{
-            background: "linear-gradient(to top, #5350C3 0%, #8784F8 0%)",
+            background: " #470A5F",
           }}
           tabIndex={0}
-          className="menu menu-sm dropdown-content bg-base-100 text-white font-bold text-lg rounded-box z-[1] mt-3 w-52 p-2 shadow"
+          className="menu menu-sm dropdown-content bg-base-100  text-white font-bold text-lg rounded-box z-[10] mt-3 w-52 p-2 shadow"
         >
           <NavLink className={'nav'} to={'/'}>Home</NavLink>
           <NavLink className={'nav'} to={'/about'}>About</NavLink>
