@@ -2,11 +2,15 @@ import React from 'react';
 import Navbar from './Header/Navbar';
 import Banner from './Header/Banner';
 import HomeAbout from './HomeAbout';
-import Skills from './Skils';
-import Projects from './Projects';
+
+
 import Contact from './Contact';
 import Footer from './Footer';
 import { Helmet } from 'react-helmet';
+import { SparklesPreview } from '@/components/All/Projectss';
+import { WorkSkil } from '@/components/All/WorkSkill';
+import { BackgroundBeamsDemo } from '@/components/All/BackGround';
+
 
 
 
@@ -19,10 +23,12 @@ const Home = () => {
         <title>Home - Abu Saleh Noor</title>
     </Helmet>
             <Navbar></Navbar>
-            <Banner></Banner>
+            {/* <Banner></Banner> */}
+            <BackgroundBeamsDemo></BackgroundBeamsDemo>
             <HomeAbout></HomeAbout>
-            <Skills></Skills>
-            <Projects></Projects>
+         <WorkSkil></WorkSkil>
+            <SparklesPreview></SparklesPreview>
+            {/* <Projects></Projects> */}
             <Contact></Contact>
             <Footer></Footer>
           

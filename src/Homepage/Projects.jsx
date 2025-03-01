@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ThemeContext } from '../Provider/AuthProvider';
 
+
+
 const Projects = () => {
 const {theme } = useContext(ThemeContext)
 
@@ -21,7 +23,7 @@ useEffect(() => {
     <div
     
       style={{
-        backgroundImage: `${theme === 'dark' ? `url(${bg})` : ''}`,
+     
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundColor: `${theme === 'dark' ? '' : 'white'}`
@@ -29,9 +31,12 @@ useEffect(() => {
       }}
     >
     <div className='w-10/12 mx-auto text-center pb-16'>
-      <div className="relative z-10 text-white p-8">
+      {/* <div className="relative z-10 text-white p-8">
         <h1 className="text-7xl"> My Projects</h1>
-      </div>
+
+      </div> */}
+
+   
 
         <div className='grid  md:grid-cols-2 lg:grid-cols-3  gap-6'>
           {

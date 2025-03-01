@@ -12,17 +12,17 @@ import { motion } from 'framer-motion';
 import { useContext } from "react";
 import { ThemeContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
-
+// import { motion } from 'framer-motion';
 const Skills = () => {
   const {theme} = useContext(ThemeContext)
     return (
         <div className={`${theme === 'dark'? 'bg-black' : 'bg-white border border-[#23D8FF]'}`}>
           
-        <div className="w-8/12 mx-auto text-center py-20">
-            <div>
+        <div className="w-8/12 mx-auto text-center ">
+            {/* <div>
                 <h1 className={`lg:text-8xl md:6xl text-4xl text-center justify-center ${theme === 'dark'? 'text-white/90': 'text-[#23D8FF]'} flex`}>My Skils <FiArrowDownRight className={`${ theme === 'dark'? 'text-[#6F1160] ' : 'text-[#23D8FF]'}lg:text-8xl md:6xl text-5xl`} /></h1>
-            </div>
-            <div className={`flex flex-wrap mt-16 ${theme === 'dark' ? 'text-white' : 'text[#23D8FF]'} justify-center gap-8 lg:gap-12`}>
+            </div> */}
+            <div className={`flex flex-wrap ${theme === 'dark' ? 'text-white' : 'text[#23D8FF]'} justify-center gap-8 lg:gap-12`}>
                 {/* Card 1 */}
                 <motion.div
                 
@@ -180,23 +180,23 @@ const Skills = () => {
                       <p className={`${theme === 'dark' ? 'text-white': 'text-[#23D8FF]'} text-3xl mt-2`}>Express</p>
                 </motion.div>
                 {/* Card 8 */}
-                <motion.div
-                 animate={{
+                <div
+                //  animate={{
                   
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 3, 
-                    repeat: Infinity, 
-                    repeatType: "loop", 
-                    ease: "easeInOut", 
-                  }}
-                className="">
-                    <div className="border border-purple-600 p-4 rounded-xl">
+                //     scale: [1, 1.1, 1],
+                //   }}
+                //   transition={{
+                //     duration: 3, 
+                //     repeat: Infinity, 
+                //     repeatType: "loop", 
+                //     ease: "easeInOut", 
+                //   }}
+                className=" ">
+                    <div className=" p-4 box rounded-xl">
                     <img className="w-20 h-20 object-cover rounded-xl bg-white" src={firebase} alt="" />
                     </div>
                       <p className={`${theme === 'dark' ? 'text-white': 'text-[#23D8FF]'} text-3xl mt-2`}>Firebase</p>
-                </motion.div>
+                </div>
             </div>
         </div>
         </div>

@@ -3,13 +3,24 @@ import logo from '../../assets/1.png'
 import { FaRegMoon } from "react-icons/fa";
 import { LuSunMedium } from "react-icons/lu";
 import { FiArrowDownRight } from "react-icons/fi";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../Provider/AuthProvider";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 
 const Navbar = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
 
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const location = useLocation()
 
@@ -19,22 +30,37 @@ const Navbar = () => {
     setDropdownOpen(!dropdownOpen);
   };
   const { theme, toggleTheme } = useContext(ThemeContext);
+  
   const handleDownload = () => {
-    const imageLink = document.createElement('a');
-    imageLink.href = '/resume.png'; 
-    imageLink.download = 'Abu_Saleh_Resume.png'; 
-    imageLink.click();
+    const fileId = '1LGv_iJ78yksVtfsrEX3LGbSW4_9H-EKP'; 
+    const downloadLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
+    
+    const a = document.createElement('a');
+    a.href = downloadLink;
+    a.download = 'Abu_Saleh-Resume.pdf'; 
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a); 
   };
-
-
-
   const handleBackground = location.pathname === '/about' ? 'bg-purple-400' : ''
 
+
+
+  const navStyle = (() => {
+    if (location.pathname === "/") {
+      return scrollPosition === 0
+        ? "sm:absolute  top-0 z-10 md:bg-opacity-40 md:text-white w-10/12" 
+        : "sticky top-0 z-50  bg-[black]/95 border-gray-600  shadow-2xl shadow-[#251540]  flex justify-center text-white mx-auto shadow-md";
+    } else {
+      return "bg-[#031B33] text-white";
+    }
+  })();
+
     return (
-      <div className="">
+      <div className={`${navStyle} flex  justify-center mx-auto w-full  sticky top-0 z-50`}>
        
-        <div className={`w-full py-6 ${theme === 'dark' ? `header ${handleBackground}` : `bg-white border border-[#23D8FF] `}`}>
-        <div className={`navbar sticky top-0 w-full md:w-11/12   mx-auto p-6 rounded-full ${theme === 'dark' ? 'bg-black' : ' text-black' } `}>
+        <div className={`w-full   ${theme === 'dark' ? `  ${handleBackground}` : `bg-white border border-[#23D8FF] `}`}>
+        <div className={`navbar  top-0 w-full md:w-9/12   mx-auto p-6 rounded-full ${theme === 'dark' ? '' : ' text-black' } `}>
         <div className="navbar-start">
         <div className="dropdown  z-10">
       <div
@@ -81,18 +107,23 @@ const Navbar = () => {
        
         </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        {/* <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal md:gap-6 lg:gap-8 px-3 lg:text-lg font-semibold">
-        <NavLink  className={'nav md:text-xl'}  to={'/'}>Home</NavLink>
-       <NavLink className={'nav md:text-xl'}  to={'/about'}>About</NavLink>
+        <NavLink  className={'nav md:text-xl pb-1'}  to={'/'}>Home</NavLink>
+       <NavLink className={'nav md:text-xl pb-1'}  to={'/about'}>About</NavLink>
           </ul>
-        </div>
+        </div> */}
      
           <div className="navbar-end gap-1 md:gap-4">
-
+          <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal md:gap-6 lg:gap-8 px-3 lg:text-lg font-semibold">
+        <NavLink  className={'nav md:text-xl pb-1'}  to={'/'}>Home</NavLink>
+       <NavLink className={'nav md:text-xl pb-1'}  to={'/about'}>About</NavLink>
+          </ul>
+        </div>
 
           <div className="hidden md:inline-block">
-         <div className="flex gap-1 items-center " >
+         <div className="flex gap-1  items-center " >
          <LuSunMedium className={`text-xl ${theme === 'dark' ? '' : 'text-[#23D8FF]'} `} />
          <div className="form-control w-fit ">
     <label className="label cursor-pointer">
@@ -104,13 +135,22 @@ const Navbar = () => {
          <FaRegMoon className={`text-xl ${theme === 'dark' ? '' : 'text-[#23D8FF]'} `} />
          </div>
          </div>
-                <button onClick={handleDownload}  style={{
-    background: theme === 'dark'
-      ? `linear-gradient(67deg, rgba(194,21,181,1) 9%, rgba(118,8,166,1) 100%)`
-      : '#d1d1d1',
-    border: theme === 'dark' ? 'none' : '2px solid #23D8FF', backgroundColor: theme === 'dark' ? '': 'white'
-  }} className={`btn md:text-xl ${theme === 'dark'? 'text-white' : 'text-[#23D8FF]'} md:px-9  btn-ghost border shadow-xl  `}>Get Resume <FiArrowDownRight className="font-bold md:text-2xl " /> </button>
+                <button onClick={handleDownload}  
+            
+            style={{
+              background: `linear-gradient(${isHovered ? "133deg" : "313deg"}, #2B1557 41%, #7D49E5 100%)`,
+              border: theme === "dark" ? "none" : "2px solid #23D8FF",
+              transition: "background 0.8s ease-in-out",
+
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="btn btn-ghost 2xl:w-/4 text-lg rounded-full text-white"
+                
+                
+                >Get Resume <FiArrowDownRight className="font-bold md:text-2xl " /> </button>
         </div>
+    
        
       </div>
       </div>
